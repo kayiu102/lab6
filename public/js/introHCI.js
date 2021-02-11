@@ -11,6 +11,7 @@ $(document).ready(function() {
 function initializePage() {
 	$('.project a').click(addProjectDetails);
 
+
 	// $('#colorBtn').click(randomizeColors);
 }
 
@@ -25,6 +26,10 @@ function addProjectDetails(e) {
 	var projectID = $(this).closest('.project').attr('id');
 	// get rid of 'project' from the front of the id 'project3'
 	var idNumber = projectID.substr('project'.length);
-
+	$.get("http://localhost:3000/project/" + idNumber, callBackFn);
 	console.log("User clicked on project " + idNumber);
+}
+
+function callBackFn(result) {
+	console.log(response);
 }
